@@ -2,6 +2,30 @@
 
 namespace FibonacciNumbers
 {
+    public static class FibonacciNumbers
+    {
+        public static bool MembershipCheck (int number)
+        {
+            int fibonacciN1 = 0;
+            int fibonacciN2 = 1;
+            int fibonacciN;
+            do
+            {
+                fibonacciN = fibonacciN1 + fibonacciN2;
+                fibonacciN1 = fibonacciN2;
+                fibonacciN2 = fibonacciN;
+            } while (fibonacciN < number);
+            if ((number == fibonacciN) || (number == 0))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+    
     class Program
     {
         static void Main()
@@ -32,23 +56,14 @@ namespace FibonacciNumbers
                     Console.WriteLine(reinput);
                     repeat = true;
                 }
-                if (number < 0)
+                if ((number < 0) && (repeat == false))
                 {
                     Console.WriteLine("\nInput number is negative.");
                     Console.WriteLine(reinput);
                     repeat = true;
                 }
             } while (repeat == true);
-            int fibonacciN1 = 0;
-            int fibonacciN2 = 1;
-            int fibonacciN;
-            do
-            {
-                fibonacciN = fibonacciN1 + fibonacciN2;
-                fibonacciN1 = fibonacciN2;
-                fibonacciN2 = fibonacciN;
-            } while (fibonacciN < number);
-            if ((number == fibonacciN) || (number == 0))
+            if (FibonacciNumbers.MembershipCheck(number) == true)
             {
                 Console.WriteLine("\nThis number is a Fibonacci number.");
             }
