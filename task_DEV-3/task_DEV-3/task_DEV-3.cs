@@ -42,7 +42,6 @@ namespace FibonacciNumbers
         static void Main()
         {
             bool repeat = false;
-            const string reinput = "\nPlease, repeat number entry.\n";
             int number = 0;
             do
             {
