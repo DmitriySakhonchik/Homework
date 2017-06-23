@@ -6,33 +6,39 @@ namespace FibonacciNumbers
     {
         static void Main()
         {
-            Console.WriteLine("Enter a number:");
-            string numberString = Console.ReadLine();
+            bool repeat = false;
+            const string reinput = "\nPlease, repeat number entry.\n";
             int number = 0;
-            try
+            do
             {
-                number = Int32.Parse(numberString);
-            }
-            catch (FormatException e)
-            {
-                Console.Write("\nFormatException: ");
-                Console.WriteLine(e.Message);
-                Console.ReadKey();
-                Environment.Exit(0);
-            }
-            catch (OverflowException e)
-            {
-                Console.Write("\nOverflowException: ");
-                Console.WriteLine("Number is too large.");
-                Console.ReadKey();
-                Environment.Exit(0);
-            }
-            if (number < 0)
-            {
-                Console.WriteLine("\nInput number is negative.");
-                Console.ReadKey();
-                Environment.Exit(0);
-            }
+                Console.WriteLine("Enter a number:");
+                string numberString = Console.ReadLine();                
+                try
+                {
+                    number = Int32.Parse(numberString);
+                    repeat = false;
+                }
+                catch (FormatException e)
+                {
+                    Console.Write("\nFormatException: ");
+                    Console.WriteLine(e.Message);
+                    Console.WriteLine(reinput);
+                    repeat = true;
+                }
+                catch (OverflowException e)
+                {
+                    Console.Write("\nOverflowException: ");
+                    Console.WriteLine("Number is too large.");
+                    Console.WriteLine(reinput);
+                    repeat = true;
+                }
+                if (number < 0)
+                {
+                    Console.WriteLine("\nInput number is negative.");
+                    Console.WriteLine(reinput);
+                    repeat = true;
+                }
+            } while (repeat == true);
             int fibonacciN1 = 0;
             int fibonacciN2 = 1;
             int fibonacciN;
