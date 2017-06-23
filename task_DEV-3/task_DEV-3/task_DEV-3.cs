@@ -2,6 +2,17 @@
 
 namespace FibonacciNumbers
 {
+    public static class ExceptionMessage
+    {
+        public static bool ShowMessage (string exceptionType, string message)
+        {
+            Console.Write(exceptionType);
+            Console.WriteLine(message);
+            Console.WriteLine("\nPlease, repeat number entry.\n");
+            return true;
+        }
+    }
+    
     public static class FibonacciNumbers
     {
         public static bool MembershipCheck (int number)
@@ -44,23 +55,15 @@ namespace FibonacciNumbers
                 }
                 catch (FormatException e)
                 {
-                    Console.Write("\nFormatException: ");
-                    Console.WriteLine(e.Message);
-                    Console.WriteLine(reinput);
-                    repeat = true;
+                    repeat = ExceptionMessage.ShowMessage("\nFormatException: ", e.Message);
                 }
                 catch (OverflowException e)
                 {
-                    Console.Write("\nOverflowException: ");
-                    Console.WriteLine("Number is too large.");
-                    Console.WriteLine(reinput);
-                    repeat = true;
+                    repeat = ExceptionMessage.ShowMessage("\nOverflowException: ", "Number is too large.");
                 }
                 if ((number < 0) && (repeat == false))
                 {
-                    Console.WriteLine("\nInput number is negative.");
-                    Console.WriteLine(reinput);
-                    repeat = true;
+                    repeat = ExceptionMessage.ShowMessage("\nException: ", "\nInput number is negative.");
                 }
             } while (repeat == true);
             if (FibonacciNumbers.MembershipCheck(number) == true)
