@@ -33,7 +33,6 @@ namespace FibonacciNumbers
                 Console.ReadKey();
                 Environment.Exit(0);
             }
-
             int fibonacciN1 = 0;
             int fibonacciN2 = 1;
             int fibonacciN;
@@ -51,7 +50,6 @@ namespace FibonacciNumbers
             {
                 Console.WriteLine("\nThis number is not a Fibonacci number.");
             }
-
             Console.WriteLine("\nPress any key to exit...");
             Console.ReadKey();
         }
