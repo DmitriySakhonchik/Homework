@@ -62,7 +62,7 @@ namespace FibonacciNumbers
                 }
                 if ((number < 0) && (repeat == false))
                 {
-                    repeat = ExceptionMessage.ShowMessage("\nException: ", "\nInput number is negative.");
+                    repeat = ExceptionMessage.ShowMessage("\nException: ", "Input number is negative.");
                 }
             } while (repeat == true);
             if (FibonacciNumbers.MembershipCheck(number) == true)
