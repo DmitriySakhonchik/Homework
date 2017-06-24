@@ -37,7 +37,7 @@ namespace FibonacciNumbers
         }
     }
     
-    class Program
+    class FibonacciProgram
     {
         static void Main()
         {
