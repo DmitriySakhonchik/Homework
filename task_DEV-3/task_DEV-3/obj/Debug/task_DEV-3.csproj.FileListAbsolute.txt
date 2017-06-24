@@ -1,6 +1,0 @@
-D:\C#\task_DEV-3\task_DEV-3\bin\Debug\task_DEV-3.exe.config
-D:\C#\task_DEV-3\task_DEV-3\bin\Debug\task_DEV-3.exe
-D:\C#\task_DEV-3\task_DEV-3\bin\Debug\task_DEV-3.pdb
-D:\C#\task_DEV-3\task_DEV-3\obj\Debug\task_DEV-3.csprojResolveAssemblyReference.cache
-D:\C#\task_DEV-3\task_DEV-3\obj\Debug\task_DEV-3.exe
-D:\C#\task_DEV-3\task_DEV-3\obj\Debug\task_DEV-3.pdb
