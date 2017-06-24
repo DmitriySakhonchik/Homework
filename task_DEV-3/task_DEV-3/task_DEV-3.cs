@@ -26,14 +26,7 @@ namespace FibonacciNumbers
                 fibonacciN1 = fibonacciN2;
                 fibonacciN2 = fibonacciN;
             } while (fibonacciN < number);
-            if ((number == fibonacciN) || (number == 0))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return ((number == fibonacciN) || (number == 0));
         }
     }
     
