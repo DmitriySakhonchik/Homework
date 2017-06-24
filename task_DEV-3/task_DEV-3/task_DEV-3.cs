@@ -37,7 +37,7 @@ namespace FibonacciNumbers
         }
     }
     
-    class FibonacciProgram
+    class FibonacciNumberSearchTool
     {
         static void Main()
         {
