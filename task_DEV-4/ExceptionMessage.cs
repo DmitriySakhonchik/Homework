@@ -6,9 +6,10 @@ namespace NumberSequence
     {
         public bool ShowMessage(string exceptionType, string message)
         {
+            const string REPEAT_ENTRY = "Please, repeat number entry.\n\n";
             Console.Write(exceptionType);
             Console.WriteLine(message);
-            Console.WriteLine("Please, repeat number sequence entry.\n");
+            Console.WriteLine(REPEAT_ENTRY);
             return true;
         }
     }
