@@ -21,6 +21,7 @@ namespace NumberSequence
             }
             return check;
         }
+        
         public void ShowResult(bool membershipCheck)
         {
             if (membershipCheck == true)
