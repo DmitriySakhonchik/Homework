@@ -4,6 +4,9 @@ namespace NumberSequence
 {
     class NondecreasingNumberSequence
     {
+        public const string YES = "\nThis number sequence is a nondecreasing number sequence.";
+        public const string NO = "\nThis number sequence is not a nondecreasing number sequence.";
+        
         public bool MembershipCheck(int[] numberSequence)
         {
             bool check = true;
@@ -24,8 +27,6 @@ namespace NumberSequence
         
         public void ShowResult(bool membershipCheck)
         {
-            const string YES = "\nThis number sequence is a nondecreasing number sequence.";
-            const string NO = "\nThis number sequence is not a nondecreasing number sequence.";
             if (membershipCheck == true)
             {
                 Console.WriteLine(YES);
