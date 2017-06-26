@@ -4,18 +4,18 @@ namespace NumberSequence
 {
     class ExceptionMessage
     {
-        public static bool ShowMessage(string exceptionType, string message)
+        public bool ShowMessage(string exceptionType, string message)
         {
             Console.Write(exceptionType);
             Console.WriteLine(message);
-            Console.WriteLine("Please, repeat number entry.\n");
+            Console.WriteLine("Please, repeat number sequence entry.\n");
             return true;
         }
     }
 
     class NondecreasingNumberSequence
     {
-        public static bool MembershipCheck(int[] numberSequence)
+        public bool MembershipCheck(int[] numberSequence)
         {
             bool check = true;
             for (int i = 1; i < numberSequence.Length; i++)
@@ -32,7 +32,7 @@ namespace NumberSequence
             }
             return check;
         }
-        public static void ShowResult(bool membershipCheck)
+        public void ShowResult(bool membershipCheck)
         {
             if (membershipCheck == true)
             {
@@ -67,16 +67,19 @@ namespace NumberSequence
                 }                
                 catch (FormatException e)
                 {
-                    repeat = ExceptionMessage.ShowMessage("\nFormatException: ", e.Message);
+                    ExceptionMessage ExMessage = new ExceptionMessage();
+                    repeat = ExMessage.ShowMessage("\nFormatException: ", e.Message);
                 }
                 catch (OverflowException e)
                 {
-                    repeat = ExceptionMessage.ShowMessage("\nOverflowException: ", "Number is too large.");
+                    ExceptionMessage ExMessage = new ExceptionMessage();
+                    repeat = ExMessage.ShowMessage("\nOverflowException: ", "Number sequence is too large.");
                 }               
             } while (repeat == true);
 
-            bool membershipCheck = NondecreasingNumberSequence.MembershipCheck(numberSequence);
-            NondecreasingNumberSequence.ShowResult(membershipCheck);
+            NondecreasingNumberSequence NumSeq = new NondecreasingNumberSequence();
+            bool membershipCheck = NumSeq.MembershipCheck(numberSequence);
+            NumSeq.ShowResult(membershipCheck);
 
             Console.WriteLine("\nPress any key to exit...");
             Console.ReadKey();
