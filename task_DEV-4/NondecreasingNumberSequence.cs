@@ -24,13 +24,15 @@ namespace NumberSequence
         
         public void ShowResult(bool membershipCheck)
         {
+            const string YES = "\nThis number sequence is a nondecreasing number sequence.";
+            const string NO = "\nThis number sequence is not a nondecreasing number sequence.";
             if (membershipCheck == true)
             {
-                Console.WriteLine("\nThis number sequence is a nondecreasing number sequence.");
+                Console.WriteLine(YES);
             }
             else
             {
-                Console.WriteLine("\nThis number sequence is not a nondecreasing number sequence.");
+                Console.WriteLine(NO);
             }
         }
     }
