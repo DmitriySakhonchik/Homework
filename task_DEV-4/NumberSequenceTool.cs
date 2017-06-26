@@ -18,7 +18,7 @@ namespace NumberSequence
                 numberSequence = new int[stringNumbers.Length];
                 TransformString transformer = new TransformString();
                 repeat = transformer.ParseString(stringNumbers, numberSequence);            
-            } while (repeat == true);
+            } while (repeat);
 
             NondecreasingNumberSequence numSeq = new NondecreasingNumberSequence();
             bool membershipCheck = numSeq.MembershipCheck(numberSequence);
