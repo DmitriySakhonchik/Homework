@@ -4,10 +4,11 @@ namespace NumberSequence
 {
     class NumberSequenceTool
     {
+        public const string ENTER_NUMBER_SEQUENCE = "Enter a number sequence, dividing numbers by spaces:";
+        public const string EXIT = "\nPress any key to exit...";
+        
         static void Main()
         {
-            const string ENTER_NUMBER_SEQUENCE = "Enter a number sequence, dividing numbers by spaces:";
-            const string EXIT = "\nPress any key to exit...";
             bool repeat = false;
             int[] numberSequence;
             do
