@@ -2,7 +2,7 @@
 
 namespace NumberSequence
 {
-    class NumberSequenceTool
+    class NumberSequenceCheckTool
     {
         public const string ENTER_NUMBER_SEQUENCE = "Enter a number sequence, dividing numbers by spaces:";
         public const string EXIT = "\nPress any key to exit...";
