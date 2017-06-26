@@ -67,19 +67,19 @@ namespace NumberSequence
                 }                
                 catch (FormatException e)
                 {
-                    ExceptionMessage ExMessage = new ExceptionMessage();
-                    repeat = ExMessage.ShowMessage("\nFormatException: ", e.Message);
+                    ExceptionMessage exMessage = new ExceptionMessage();
+                    repeat = exMessage.ShowMessage("\nFormatException: ", e.Message);
                 }
                 catch (OverflowException e)
                 {
-                    ExceptionMessage ExMessage = new ExceptionMessage();
-                    repeat = ExMessage.ShowMessage("\nOverflowException: ", "Number sequence is too large.");
+                    ExceptionMessage exMessage = new ExceptionMessage();
+                    repeat = exMessage.ShowMessage("\nOverflowException: ", "Number sequence is too large.");
                 }               
             } while (repeat == true);
 
-            NondecreasingNumberSequence NumSeq = new NondecreasingNumberSequence();
-            bool membershipCheck = NumSeq.MembershipCheck(numberSequence);
-            NumSeq.ShowResult(membershipCheck);
+            NondecreasingNumberSequence numSeq = new NondecreasingNumberSequence();
+            bool membershipCheck = numSeq.MembershipCheck(numberSequence);
+            numSeq.ShowResult(membershipCheck);
 
             Console.WriteLine("\nPress any key to exit...");
             Console.ReadKey();
