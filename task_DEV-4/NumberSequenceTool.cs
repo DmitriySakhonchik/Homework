@@ -5,12 +5,14 @@ namespace NumberSequence
     class NumberSequenceTool
     {
         static void Main()
-        {            
+        {
+            const string ENTER_NUMBER_SEQUENCE = "Enter a number sequence, dividing numbers by spaces:";
+            const string EXIT = "\nPress any key to exit...";
             bool repeat = false;
             int[] numberSequence;
             do
             {
-                Console.WriteLine("Enter a number sequence, dividing numbers by spaces:");
+                Console.WriteLine(ENTER_NUMBER_SEQUENCE);
                 string inputString = Console.ReadLine();
                 string[] stringNumbers = inputString.Split();
                 numberSequence = new int[stringNumbers.Length];
@@ -22,7 +24,7 @@ namespace NumberSequence
             bool membershipCheck = numSeq.MembershipCheck(numberSequence);
             numSeq.ShowResult(membershipCheck);
 
-            Console.WriteLine("\nPress any key to exit...");
+            Console.WriteLine(EXIT);
             Console.ReadKey();
         }
     }
