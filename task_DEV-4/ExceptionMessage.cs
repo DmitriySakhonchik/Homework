@@ -8,7 +8,7 @@ namespace NumberSequence
         {
             Console.Write(exceptionType);
             Console.WriteLine(message);
-            Console.WriteLine("Please, repeat number entry.\n");
+            Console.WriteLine("Please, repeat number sequence entry.\n");
             return true;
         }
     }
