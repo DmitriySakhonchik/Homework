@@ -14,24 +14,8 @@ namespace NumberSequence
                 string inputString = Console.ReadLine();
                 string[] stringNumbers = inputString.Split();
                 numberSequence = new int[stringNumbers.Length];
-                try
-                {
-                    for (int i = 0; i < stringNumbers.Length; i++)
-                    {
-                        numberSequence[i] = Int32.Parse(stringNumbers[i]);
-                    }
-                    repeat = false;
-                }                
-                catch (FormatException e)
-                {
-                    ExceptionMessage exMessage = new ExceptionMessage();
-                    repeat = exMessage.ShowMessage("\nFormatException: ", e.Message);
-                }
-                catch (OverflowException e)
-                {
-                    ExceptionMessage exMessage = new ExceptionMessage();
-                    repeat = exMessage.ShowMessage("\nOverflowException: ", "Number sequence is too large.");
-                }               
+                TransformString transformer = new TransformString();
+                repeat = transformer.ParseString(stringNumbers, numberSequence);            
             } while (repeat == true);
 
             NondecreasingNumberSequence numSeq = new NondecreasingNumberSequence();
