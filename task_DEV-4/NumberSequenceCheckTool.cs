@@ -9,21 +9,19 @@ namespace NumberSequence
 
         static void Main()
         {
-            TransformSequence transSeq;
-            bool repeat = false;          
+            bool repeat = false;
+            NondecreasingNumberSequence numSeq;
             do
             {
                 Console.WriteLine(ENTER_NUMBER_SEQUENCE);
                 string inputString = Console.ReadLine();
                 string[] stringNumbers = inputString.Split();
-                transSeq = new TransformSequence();
-                repeat = transSeq.ParseString(stringNumbers);
+                numSeq = new NondecreasingNumberSequence();
+                repeat = numSeq.MembershipCheck(stringNumbers);
             } while (repeat);
 
-            NondecreasingNumberSequence numSeq = new NondecreasingNumberSequence();
-            bool membershipCheck = numSeq.MembershipCheck(transSeq.ReturnSequence());
-            numSeq.ShowResult(membershipCheck);
-
+            numSeq.ShowResult();
+            
             Console.WriteLine(EXIT);
             Console.ReadKey();
         }
