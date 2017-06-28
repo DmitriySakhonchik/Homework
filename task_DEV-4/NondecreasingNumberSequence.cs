@@ -33,12 +33,14 @@ namespace NumberSequence
                 catch (FormatException e)
                 {
                     ExceptionMessage exMessage = new ExceptionMessage();
-                    repeat = exMessage.ShowMessage("\nFormatException: ", e.Message);
+                    exMessage.ShowMessage("\nFormatException: ", e.Message);
+                    repeat = true;
                 }
                 catch (OverflowException e)
                 {
                     ExceptionMessage exMessage = new ExceptionMessage();
-                    repeat = exMessage.ShowMessage("\nOverflowException: ", "Number sequence is too large.");
+                    exMessage.ShowMessage("\nOverflowException: ", "Number sequence is too large.");
+                    repeat = true;
                 }
             }
             else
