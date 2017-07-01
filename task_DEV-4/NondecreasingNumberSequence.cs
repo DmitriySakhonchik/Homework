@@ -46,7 +46,7 @@ namespace NumberSequence
             else
             {
                 ExceptionMessage exMessage = new ExceptionMessage();
-                repeat = exMessage.ShowMessage("\nException: ", "Number sequence is too small.");
+                exMessage.ShowMessage("\nException: ", "Number sequence is too small.");
                 repeat = true;
             }
             return repeat;
