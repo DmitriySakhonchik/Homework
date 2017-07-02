@@ -4,7 +4,7 @@ namespace NumberSequence
 {
     class ExceptionMessage
     {
-        public const string REPEAT_ENTRY = "Please, repeat number entry.\n\n";
+        public const string REPEAT_ENTRY = "Please, repeat number entry.\n";
         
         public void ShowMessage(string exceptionType, string message)
         {
