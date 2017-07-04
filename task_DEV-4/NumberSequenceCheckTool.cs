@@ -26,7 +26,7 @@ namespace NumberSequence
                 }
                 catch (OverflowException e)
                 {
-                    ExceptionMessage exMessage = new ExceptionMessage("OverflowException: ", "Number sequence is too large.");
+                    ExceptionMessage exMessage = new ExceptionMessage("OverflowException", "Number sequence is too large.");
                     exMessage.ShowMessage();
                     repeat = true;
                 }
