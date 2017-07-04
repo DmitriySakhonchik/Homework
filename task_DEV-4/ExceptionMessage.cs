@@ -16,10 +16,10 @@ namespace NumberSequence
             this.exceptionMessage = exceptionMessage;
         }
 
-        public ExceptionMessage(string exceptionType, string message)
+        public ExceptionMessage(string exceptionType, string exceptionMessage)
         {
             this.exceptionType = exceptionType;
-            this.exceptionMessage = message;
+            this.exceptionMessage = exceptionMessage;
         }
         
         public void ShowMessage()
