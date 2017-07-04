@@ -9,44 +9,29 @@ namespace NumberSequence
         public const string YES = "\nThis number sequence is a nondecreasing number sequence.";
         public const string NO = "\nThis number sequence is not a nondecreasing number sequence.";
 
-        public bool MembershipCheck(string[] stringNumbers)
+        public bool CheckMembership(string[] stringNumbers)
         {
             bool repeat = true;
             if (stringNumbers.Length > 1)
             {
-                try
+                for (int i = 1; i < stringNumbers.Length; i++)
                 {
-                    for (int i = 1; i < stringNumbers.Length; i++)
+                    if (Int32.Parse(stringNumbers[i]) - Int32.Parse(stringNumbers[i - 1]) < 0)
                     {
-                        if (Int32.Parse(stringNumbers[i]) - Int32.Parse(stringNumbers[i - 1]) < 0)
-                        {
-                            membershipCheckResult = false;
-                            break;
-                        }
-                        else
-                        {
-                            membershipCheckResult = true;
-                        }
+                        membershipCheckResult = false;
+                        break;
                     }
-                    repeat = false;
+                    else
+                    {
+                        membershipCheckResult = true;
+                    }
                 }
-                catch (FormatException e)
-                {
-                    ExceptionMessage exMessage = new ExceptionMessage();
-                    exMessage.ShowMessage("\nFormatException: ", e.Message);
-                    repeat = true;
-                }
-                catch (OverflowException e)
-                {
-                    ExceptionMessage exMessage = new ExceptionMessage();
-                    exMessage.ShowMessage("\nOverflowException: ", "Number sequence is too large.");
-                    repeat = true;
-                }
+                repeat = false;
             }
             else
             {
-                ExceptionMessage exMessage = new ExceptionMessage();
-                exMessage.ShowMessage("\nException: ", "Number sequence is too small.");
+                ExceptionMessage exMessage = new ExceptionMessage("Number sequence is too small.");
+                exMessage.ShowMessage();
                 repeat = true;
             }
             return repeat;
