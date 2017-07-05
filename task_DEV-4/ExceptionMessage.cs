@@ -1,16 +1,36 @@
 ﻿using System;
+using System.Text;
 
 namespace NumberSequence
 {
     class ExceptionMessage
     {
-        public const string REPEAT_ENTRY = "Please, repeat number entry.\n\n";
-        
-        public void ShowMessage(string exceptionType, string message)
+        private string exceptionType;
+        private string exceptionMessage;
+
+        public const string REPEAT_ENTRY = "Please, repeat number entry.\n";
+
+        public ExceptionMessage(string exceptionMessage)
         {
-            Console.Write(exceptionType);
-            Console.WriteLine(message);
-            Console.WriteLine(REPEAT_ENTRY);
+            exceptionType = "Exception";
+            this.exceptionMessage = exceptionMessage;
+        }
+
+        public ExceptionMessage(string exceptionType, string exceptionMessage)
+        {
+            this.exceptionType = exceptionType;
+            this.exceptionMessage = exceptionMessage;
+        }
+        
+        public void ShowMessage()
+        {
+            StringBuilder messageSB = new StringBuilder("\n");
+            messageSB.Append(exceptionType);
+            messageSB.Append(": ");
+            messageSB.Append(exceptionMessage);
+            messageSB.Append("\n");
+            messageSB.Append(REPEAT_ENTRY);
+            Console.WriteLine(messageSB);
         }
     }
 }

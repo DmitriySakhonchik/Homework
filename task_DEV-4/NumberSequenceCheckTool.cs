@@ -4,23 +4,35 @@ namespace NumberSequence
 {
     class NumberSequenceCheckTool
     {
-        public const string ENTER_NUMBER_SEQUENCE = "Enter a number sequence, dividing numbers by spaces:";
         public const string EXIT = "\nPress any key to exit...";
 
-        static void Main()
+        static void Main(string[] args)
         {
             bool repeat = false;
-            NondecreasingNumberSequence numSeq;
+            NondecreasingNumberSequence numberSequence;          
             do
             {
-                Console.WriteLine(ENTER_NUMBER_SEQUENCE);
-                string inputString = Console.ReadLine();
-                string[] stringNumbers = inputString.Split();
-                numSeq = new NondecreasingNumberSequence();
-                repeat = numSeq.MembershipCheck(stringNumbers);
+                numberSequence = new NondecreasingNumberSequence();
+                try
+                {
+                    Input input = new Input();
+                    repeat = numberSequence.CheckMembership(input.NumberSequence(args, repeat));
+                }
+                catch (FormatException e)
+                {
+                    ExceptionMessage exMessage = new ExceptionMessage("FormatException", e.Message);
+                    exMessage.ShowMessage();
+                    repeat = true;
+                }
+                catch (OverflowException e)
+                {
+                    ExceptionMessage exMessage = new ExceptionMessage("OverflowException", "Number sequence is too large.");
+                    exMessage.ShowMessage();
+                    repeat = true;
+                }
             } while (repeat);
 
-            numSeq.ShowResult();
+            numberSequence.ShowResult();
             
             Console.WriteLine(EXIT);
             Console.ReadKey();

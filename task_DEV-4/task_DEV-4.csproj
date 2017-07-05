@@ -42,7 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="task_DEV-4.cs" />
+    <Compile Include="ExceptionMessage.cs" />
+    <Compile Include="NondecreasingNumberSequence.cs" />
+    <Compile Include="NumberSequenceCheckTool.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
