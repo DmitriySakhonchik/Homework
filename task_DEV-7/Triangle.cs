@@ -14,6 +14,7 @@ namespace TriangleAnalysis
         public const string EQUILATERAL = "The triangle is equilateral (all sides the same length).";
 
         public const string NEGATIVE = "Input number/numbers is/are negative.";
+        public const string TRIANGLE_INEQUALITY = "Triangle inequality fails (triangle can not exist).";
 
         public void DetermineType(string[] sides)
         {
@@ -22,6 +23,10 @@ namespace TriangleAnalysis
                 (Double.Parse(sides[2]) < 0))
             {
                 throw new Exception(NEGATIVE);
+            }
+            if (!(CheckTriangleInequality(sides)))
+            {
+                throw new Exception(TRIANGLE_INEQUALITY);
             }
 
             if ((Double.Parse(sides[0]) == Double.Parse(sides[1])) && 
@@ -60,6 +65,22 @@ namespace TriangleAnalysis
                     Console.WriteLine(NOT_DETERMINED);
                     break;
             }
-        } 
+        }
+
+        public bool CheckTriangleInequality(string[] sides)
+        {
+            bool triangleInequality;
+            if ((Double.Parse(sides[0]) + Double.Parse(sides[1]) >= Double.Parse(sides[2])) &&
+                (Double.Parse(sides[1]) + Double.Parse(sides[2]) >= Double.Parse(sides[0])) &&
+                (Double.Parse(sides[0]) + Double.Parse(sides[2]) >= Double.Parse(sides[1])))
+            {
+                triangleInequality = true;
+            }
+            else
+            {
+                triangleInequality = false;
+            }
+            return triangleInequality;
+        }
     }
 }
