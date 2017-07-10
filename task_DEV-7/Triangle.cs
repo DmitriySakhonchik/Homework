@@ -6,7 +6,7 @@ namespace TriangleAnalysis
 
     class Triangle
     {
-        private int type;
+        private Types type;
         private string[] sides;
 
         public const string NOT_DETERMINED = "Type of the triangle is not determined.";
@@ -27,21 +27,21 @@ namespace TriangleAnalysis
 
         public void DetermineType()
         {
-            if ((Double.Parse(sides[0]) == Double.Parse(sides[1])) && 
-                (Double.Parse(sides[1]) == Double.Parse(sides[2])) &&
-                (Double.Parse(sides[0]) == Double.Parse(sides[2])))
+            if ((Math.Abs(Double.Parse(sides[0]) - Double.Parse(sides[1])) < Double.Epsilon) && 
+                (Math.Abs(Double.Parse(sides[1]) - Double.Parse(sides[2])) < Double.Epsilon) &&
+                (Math.Abs(Double.Parse(sides[0]) - Double.Parse(sides[2])) < Double.Epsilon))
             {
-                type = (int)Types.Equilateral;
+                type = Types.Equilateral;
             }
-            else if ((Double.Parse(sides[0]) != Double.Parse(sides[1])) && 
-                     (Double.Parse(sides[1]) != Double.Parse(sides[2])) &&
-                     (Double.Parse(sides[0]) != Double.Parse(sides[2])))
+            else if ((Math.Abs(Double.Parse(sides[0]) - Double.Parse(sides[1])) > Double.Epsilon) &&
+                     (Math.Abs(Double.Parse(sides[1]) - Double.Parse(sides[2])) > Double.Epsilon) &&
+                     (Math.Abs(Double.Parse(sides[0]) - Double.Parse(sides[2])) > Double.Epsilon))
             {
-                type = (int)Types.Scalene;
+                type = Types.Scalene;
             }
             else
             {
-                type = (int)Types.Isosceles;
+                type = Types.Isosceles;
             }
         }
 
@@ -50,13 +50,13 @@ namespace TriangleAnalysis
             Console.WriteLine();
             switch(type)
             {
-                case (int)Types.Scalene:
+                case Types.Scalene:
                     Console.WriteLine(SCALENE);
                     break;
-                case (int)Types.Isosceles:
+                case Types.Isosceles:
                     Console.WriteLine(ISOSCELES);
                     break;
-                case (int)Types.Equilateral:
+                case Types.Equilateral:
                     Console.WriteLine(EQUILATERAL);
                     break;
                 default:
