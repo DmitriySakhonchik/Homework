@@ -18,42 +18,22 @@ namespace TriangleAnalysis
 
         public string[] EnterTriangleSides()
         {
-            string[] triangleSides = null;
             bool repeat = false;
             do
             {
                 try
                 {
-                    if (args.Length == 0 || repeat == true)
+                    if ((args.Length == 0) || (repeat == true))
                     {
-
-                        triangleSides = EnterTriangleSidesConsole();
+                        EnterTriangleSidesConsole();
                     }
                     else
                     {
-                        triangleSides = EnterTriangleSidesCommandLine(args);
+                        EnterTriangleSidesCommandLine();
                     }
-                    TriangleSidesValidator validator = new TriangleSidesValidator(triangleSides);
+                    TriangleSidesValidator validator = new TriangleSidesValidator(args);
                     validator.CheckValidity();
                     repeat = false;
-                }
-                catch (FormatException e)
-                {
-                    Console.WriteLine("\nFormatException: " + e.Message);
-                    Console.WriteLine(REPEAT_ENTRY);
-                    repeat = true;
-                }
-                catch (OverflowException e)
-                {
-                    Console.WriteLine("\nOverflowException: " + e.Message);
-                    Console.WriteLine(REPEAT_ENTRY);
-                    repeat = true;
-                }
-                catch (NullReferenceException e)
-                {
-                    Console.WriteLine("\nNullReferenceException: " + e.Message);
-                    Console.WriteLine(REPEAT_ENTRY);
-                    repeat = true;
                 }
                 catch (Exception e)
                 {
@@ -63,34 +43,26 @@ namespace TriangleAnalysis
                 }
             } while (repeat);
             
-            return triangleSides;
+            return args;
         }
 
-        public string[] EnterTriangleSidesConsole()
+        public void EnterTriangleSidesConsole()
         {
-            string[] triangleSides;
             Console.WriteLine(ENTER_TRIANGLE_SIDES);
             string inputString = Console.ReadLine();
-            triangleSides = inputString.Split();
-            if (triangleSides.Length != 3)
+            args = inputString.Split();
+            if (args.Length != 3)
             {
                 throw new Exception(SIDES_LENGTHS_NUMBER);
             }
-            return triangleSides;
         }
 
-        public string[] EnterTriangleSidesCommandLine(string[] args)
+        public void EnterTriangleSidesCommandLine()
         {
-            string[] triangleSides;
             if (args.Length != 3)
             {
                 throw new Exception(CL_ARGUMENTS_LENGTH);
             }
-            else
-            {
-                triangleSides = args;
-            }
-            return triangleSides;
         }
     }
 }
