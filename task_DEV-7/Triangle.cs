@@ -7,6 +7,7 @@ namespace TriangleAnalysis
     class Triangle
     {
         private int type;
+        private string[] sides;
 
         public const string NOT_DETERMINED = "Type of the triangle is not determined.";
         public const string SCALENE = "The triangle is scalene (all sides of different lengths).";
@@ -16,19 +17,16 @@ namespace TriangleAnalysis
         public const string NEGATIVE = "Input number/numbers is/are negative.";
         public const string TRIANGLE_INEQUALITY = "Triangle inequality fails (triangle can not exist).";
 
-        public void DetermineType(string[] sides)
+        public string[] Sides
         {
-            if ((Double.Parse(sides[0]) < 0) ||
-                (Double.Parse(sides[1]) < 0) ||
-                (Double.Parse(sides[2]) < 0))
+            set
             {
-                throw new Exception(NEGATIVE);
+                sides = value;
             }
-            if (!(CheckTriangleInequality(sides)))
-            {
-                throw new Exception(TRIANGLE_INEQUALITY);
-            }
+        }
 
+        public void DetermineType()
+        {
             if ((Double.Parse(sides[0]) == Double.Parse(sides[1])) && 
                 (Double.Parse(sides[1]) == Double.Parse(sides[2])) &&
                 (Double.Parse(sides[0]) == Double.Parse(sides[2])))
@@ -65,22 +63,6 @@ namespace TriangleAnalysis
                     Console.WriteLine(NOT_DETERMINED);
                     break;
             }
-        }
-
-        public bool CheckTriangleInequality(string[] sides)
-        {
-            bool triangleInequality;
-            if ((Double.Parse(sides[0]) + Double.Parse(sides[1]) >= Double.Parse(sides[2])) &&
-                (Double.Parse(sides[1]) + Double.Parse(sides[2]) >= Double.Parse(sides[0])) &&
-                (Double.Parse(sides[0]) + Double.Parse(sides[2]) >= Double.Parse(sides[1])))
-            {
-                triangleInequality = true;
-            }
-            else
-            {
-                triangleInequality = false;
-            }
-            return triangleInequality;
-        }
+        } 
     }
 }
