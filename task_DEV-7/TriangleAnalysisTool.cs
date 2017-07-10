@@ -16,8 +16,9 @@ namespace TriangleAnalysis
                 triangle = new Triangle();
                 try
                 {
-                    Input input = new Input();
-                    triangle.DetermineType(input.EnterTriangleSides(args, repeat));
+                    Input input = new Input(args);
+                    triangle.Sides = input.EnterTriangleSides(repeat);
+                    triangle.DetermineType();
                     repeat = false;
                 }
                 catch (FormatException e)
@@ -32,12 +33,18 @@ namespace TriangleAnalysis
                     Console.WriteLine(REPEAT_ENTRY);
                     repeat = true;
                 }
+                catch (NullReferenceException e)
+                {
+                    Console.WriteLine("\nNullReferenceException: " + e.Message);
+                    Console.WriteLine(REPEAT_ENTRY);
+                    repeat = true;
+                }
                 catch (Exception e)
                 {
                     Console.WriteLine("\nException: " + e.Message);
                     Console.WriteLine(REPEAT_ENTRY);
                     repeat = true;
-                }
+                }               
             } while (repeat);
 
             triangle.ShowType();
